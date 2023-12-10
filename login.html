@@ -6,62 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
     <title>Eco-House</title>
+    <style>
+        /* Add some styles for error messages */
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img class="logo" src="images/logo2.png" alt="logo">
-    <nav class="nav-bar">    
-        <ul class="nav-links">
+    <header>
+        <img class="logo" src="images/logo2.png" alt="logo">
+        <nav class="nav-bar">    
+            <ul class="nav-links">
                 <li><a href="homepage.html">HOME</a></li>
                 <li><a href="aboutus.html">ABOUT US</a></li>
                 <li><a href="catalog.html">CATALOG</a></li>
                 <li><a href="blog.html">BLOG</a></li>
                 <li><a href="contactus.html">CONTACT US</a></li>
-        </ul>
-    </nav>
-    
-  </header>
-  <div class="container" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <div class="col-lg-12"  style="display: flex; justify-content: center; align-items: center;">
-    <div class="login-container">
+            </ul>
+        </nav>
+    </header>
 
-        <h1>Log In</h1>
-        <form id="loginForm">
-            <div class="form-group">
-                <input type="text" id="username" name="username" placeholder="Username" required>
+    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div class="col-lg-12"  style="display: flex; justify-content: center; align-items: center;">
+            <div class="login-container">
+                <h1>Log In</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <div id="usernameError" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <div id="passwordError" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" name="submit" id="button">Login</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="password" id="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit" name="submit"  id="button">Login</button>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-</div>
-     <script>
+
+    <script>
         function validateForm() {
-     var username = document.getElementById("username").value;
-     var password = document.getElementById("password").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var isValid = true;
 
-  
-     var usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
-     if(!usernameRegex.test(username)){
-        alert("Please enter a valid username");
-        return false;
-     }
-     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-     if(!passwordRegex.test(password)){
-        alert("Please enter a valid password");
-        return false;
-     }
-  return true;
-}
-  document.getElementById('button').addEventListener('click', validateForm);
+            var usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
+            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+            // Validate username
+            if (!usernameRegex.test(username)) {
+                document.getElementById("usernameError").innerText = "Please enter a valid username";
+                isValid = false;
+            } else {
+                document.getElementById("usernameError").innerText = "";
+            }
+
+            // Validate password
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").innerText = "Please enter a valid password";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").innerText = "";
+            }
+
+            return isValid;
+        }
+
+        document.getElementById('button').addEventListener('click', function() {
+            if (validateForm()) {
+                // If the form is valid, you can proceed with further actions
+                alert("Form submitted successfully!");
+            }
+        });
     </script>
-    <p id="copyright">Copyright © 2023. All rights reserved.</p>
 
+    <p id="copyright">Copyright © 2023. All rights reserved.</p>
 </body>
 </html>
-
