@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contactstyle.css">
+    <title>Eco-House</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/logo2.png" alt="logo">
+        <nav class="nav-bar">    
+            <ul class="nav-links">
+                    <li><a href="homepage.html">HOME</a></li>
+                    <li><a href="aboutus/aboutus.html">ABOUT US</a></li>
+                    <li><a href="catalog/catalog.html">CATALOG</a></li>
+                    <li><a href="projects/projects.html">PROJECTS</a></li>
+                    <li><a href="blog/blog.html">BLOG</a></li>
+            </ul>
+        </nav>
+        <a class="acc" href="login-signup/Login.html">LOG IN</a>
+      </header>
+      <div class="container">
+        <form action="/submit-form" method="post" id="contact-form"> 
+        <div class="form-group"> 
+            <label for="name">Name</label> 
+            <input type="text" id="name" name="name" required> 
+          </div> 
+          <div class="form-group"> 
+            <label for="email">Email</label> 
+            <input type="email" id="email" name="email" required> 
+          </div> 
+          <div class="form-group"> 
+            <label for="subject">Subject</label> 
+            <input type="text" id="subject" name="subject" required> 
+          </div> 
+          <div class="form-group"> 
+            <label for="message">Message</label> 
+            <textarea id="message" name="message" required></textarea> 
+          </div> 
+          <div class="form-group btn-container"> 
+            <input type="submit" value="Send Message"> 
+          </div> 
+        </form> 
+      </div>
+
+      <footer>
+        <div class="homelogo">
+          <img src="images/logo2.png" alt="logo">
+        </div>
+        <div class="main-footer">
+          <div class="services">
+            <h3>Services</h3>
+            <ul>
+              <li>Nascetur Ridiculus Mus</li>
+              <li> Curabitur Eu Tempor</li>
+              <li> Nullam Mollis Accumsan</li>
+            </ul>
+        </div>
+        <div class="contact">
+          <h3>Contact us</h3>
+          <ul>
+            <li>044/123-456</li>
+            <li>ecohause@gmail.com</li>
+            <li>Arberi rr.Filan Fisteku nr.77</li>
+          </ul>
+        </div>
+       
+      </div>
+      </footer>
+      <p id="copyright">Copyright © 2023. All rights reserved.</p>
+</body>
+</html>
